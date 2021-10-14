@@ -1,0 +1,6 @@
+name: OrcaAPI
+version: ${project.version}
+main: dev.wither.orca.Orca
+api-version: 1.8
+authors: [ Wither ]
+description: Lightning fast, pro performance — designed with speed in mind.
