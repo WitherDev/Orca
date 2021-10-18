@@ -20,6 +20,7 @@ public class PlayerCommandVariable extends CommandVariable {
      */
     @Override
     public @NotNull List<String> getCompletion(CommandSender sender) {
+
         List<String> list = new ArrayList<>();
 
         if (sender instanceof Player) {

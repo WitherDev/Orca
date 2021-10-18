@@ -1,8 +1,10 @@
 package dev.wither.orca.bukkit.creation;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import de.tr7zw.nbtapi.NBTCompound;
 import de.tr7zw.nbtapi.NBTItem;
 import dev.wither.orca.Orca;
+import dev.wither.orca.bukkit.encoder.OrcaEncoder;
 import lombok.Getter;
 import lombok.val;
 import org.bukkit.Material;
@@ -169,7 +171,6 @@ public class ItemCreator {
         return nbt;
 
     }
-
     /**
      * Create an ItemCreator from the data in the ConfigurationSection.
      * @param section ConfigurationSection which contains the data for the ItemStack.

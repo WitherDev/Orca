@@ -1,6 +1,8 @@
 package dev.wither.orca.bukkit.blocks;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import dev.wither.orca.bukkit.revamps.OrcaLocation;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
@@ -57,6 +59,42 @@ public class OrcaCuboid implements OrcaBlockContainer {
 
         minZ = Math.min(a.getBlockZ(), b.getBlockZ());
         maxZ = Math.max(a.getBlockZ(), b.getBlockZ());
+
+    }
+
+    public OrcaCuboid(OrcaLocation orcaA, OrcaLocation orcaB) {
+
+        Location a = orcaA.toBukkit();
+        Location b = orcaB.toBukkit();
+
+        if (!a.getWorld().equals(b.getWorld())) {
+
+            throw new RuntimeException("OrcaCuboid was created with locations in different worlds!");
+
+        }
+
+        world = a.getWorld().getName();
+        minX = Math.min(a.getBlockX(), b.getBlockX());
+        maxX = Math.max(a.getBlockX(), b.getBlockX());
+
+        minY = Math.min(a.getBlockY(), b.getBlockY());
+        maxY = Math.max(a.getBlockY(), b.getBlockY());
+
+        minZ = Math.min(a.getBlockZ(), b.getBlockZ());
+        maxZ = Math.max(a.getBlockZ(), b.getBlockZ());
+
+    }
+
+    @JsonCreator
+    public OrcaCuboid(@JsonProperty("minX") int minX, @JsonProperty("minY") int minY, @JsonProperty("minZ") int minZ, @JsonProperty("maxX") int maxX, @JsonProperty("maxY") int maxY, @JsonProperty("maxZ") int maxZ, String world) {
+
+        this.minX = minX;
+        this.minY = minY;
+        this.minZ = minZ;
+        this.maxX = minX;
+        this.maxY = minY;
+        this.maxZ = minZ;
+        this.world = world;
 
     }
 

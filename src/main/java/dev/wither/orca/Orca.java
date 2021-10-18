@@ -30,6 +30,7 @@ public class Orca extends JavaPlugin {
         return ChatColor.translateAlternateColorCodes('&', string);
 
     }
+
     public static String[] addColor(String[] strings) {
 
         List<String> colorized = new ArrayList<>();
